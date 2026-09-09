@@ -1,0 +1,12 @@
+langgraph>=0.2
+anthropic>=0.34
+openai>=1.40
+resend>=2.0
+beautifulsoup4>=4.12
+requests>=2.32
+python-dotenv>=1.0
+pydantic>=2.0
+fastapi>=0.115
+uvicorn[standard]>=0.30
+email-validator>=2.0
+xhtml2pdf

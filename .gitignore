@@ -1,0 +1,17 @@
+# --- Backend (Python) ---
+.env
+__pycache__/
+*.pyc
+venv/
+.venv/
+outputs/
+
+# --- Frontend (Angular/Node) ---
+node_modules/
+dist/
+.angular/
+*.log
+
+# --- OS/editor noise ---
+.DS_Store
+.vscode/

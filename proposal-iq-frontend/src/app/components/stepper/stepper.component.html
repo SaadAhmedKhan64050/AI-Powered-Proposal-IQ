@@ -1,0 +1,21 @@
+<ol class="stepper">
+  @for (step of steps; track step.path; let i = $index) {
+    <li
+      class="stepper__item"
+      [class.stepper__item--active]="i === currentIndex"
+      [class.stepper__item--done]="i < currentIndex"
+    >
+      @if (i <= furthestUnlockedIndex) {
+        <a class="stepper__link" [routerLink]="['/runs', runId, step.path]">
+          <span class="stepper__num">{{ i + 1 }}</span>
+          <span class="stepper__label">{{ step.label }}</span>
+        </a>
+      } @else {
+        <span class="stepper__link stepper__link--locked">
+          <span class="stepper__num">{{ i + 1 }}</span>
+          <span class="stepper__label">{{ step.label }}</span>
+        </span>
+      }
+    </li>
+  }
+</ol>

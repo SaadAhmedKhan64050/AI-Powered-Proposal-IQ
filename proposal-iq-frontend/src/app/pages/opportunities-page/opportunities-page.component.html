@@ -1,0 +1,51 @@
+<app-stepper [runId]="runId" [currentIndex]="1" [furthestUnlockedIndex]="1" />
+
+<section class="panel">
+  @if (loading) {
+    <div class="notice notice--pending">
+      <p class="notice__title">
+        {{ run ? 'Loading…' : 'Identifying opportunities…' }}
+      </p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="notice notice--error">
+      <p class="notice__title">Something went wrong</p>
+      <p class="notice__body">{{ errorMessage }}</p>
+    </div>
+  }
+
+  @if (run) {
+    <h1 class="panel__title">Opportunities — {{ run.company_name }}</h1>
+    <p class="panel__subtitle">
+      Opportunities identified from the research, each grounded in specific
+      evidence.
+    </p>
+
+    @if (!run.opportunities.length) {
+      <div class="notice notice--empty">
+        <p class="notice__title">No grounded opportunities found</p>
+        <p class="notice__body">
+          The research wasn't specific enough to support a confident
+          opportunity. You can still continue, but the report will be thin.
+        </p>
+      </div>
+    }
+
+    @for (opp of run.opportunities; track opp.title) {
+      <div class="opportunity">
+        <h3 class="opportunity__title">{{ opp.title }}</h3>
+        <p class="opportunity__desc">{{ opp.description }}</p>
+        <p class="opportunity__evidence"><span>Evidence</span> {{ opp.evidence }}</p>
+      </div>
+    }
+
+    <div class="page-actions">
+      <a class="btn btn--secondary" [routerLink]="['/runs', runId, 'research']">Back</a>
+      <button class="btn btn--primary" [disabled]="advancing" (click)="continue()">
+        {{ advancing ? 'Mapping solutions…' : 'Continue to solution mapping' }}
+      </button>
+    </div>
+  }
+</section>

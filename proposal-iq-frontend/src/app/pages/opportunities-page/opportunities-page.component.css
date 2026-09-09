@@ -1,0 +1,36 @@
+.opportunity {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.opportunity:first-of-type {
+  border-top: none;
+}
+
+.opportunity__title {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.opportunity__desc {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.5;
+}
+
+.opportunity__evidence {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.opportunity__evidence span {
+  font-weight: 600;
+  color: var(--ink);
+  margin-right: 4px;
+}

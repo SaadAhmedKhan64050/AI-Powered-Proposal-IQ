@@ -1,0 +1,71 @@
+<form class="intake" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <div class="intake__row">
+    <label class="intake__label" for="company_name">Company name</label>
+    <div class="intake__field">
+      <input
+        id="company_name"
+        type="text"
+        formControlName="company_name"
+        placeholder="Acme Logistics"
+        autocomplete="off"
+      />
+      @if (f.company_name.touched && f.company_name.invalid) {
+        <p class="intake__error">Enter the company's name.</p>
+      }
+    </div>
+  </div>
+
+  <div class="intake__row">
+    <label class="intake__label" for="company_url">Company website</label>
+    <div class="intake__field">
+      <input
+        id="company_url"
+        type="text"
+        formControlName="company_url"
+        placeholder="https://acme-logistics.example.com"
+        autocomplete="off"
+      />
+      @if (f.company_url.touched && f.company_url.invalid) {
+        <p class="intake__error">Enter a full URL, including https://.</p>
+      }
+    </div>
+  </div>
+
+  <div class="intake__row">
+    <label class="intake__label" for="contact_name">Contact name</label>
+    <div class="intake__field">
+      <input
+        id="contact_name"
+        type="text"
+        formControlName="contact_name"
+        placeholder="Jane Doe"
+        autocomplete="off"
+      />
+      @if (f.contact_name.touched && f.contact_name.invalid) {
+        <p class="intake__error">Enter who the report is for.</p>
+      }
+    </div>
+  </div>
+
+  <div class="intake__row">
+    <label class="intake__label" for="contact_email">Contact email</label>
+    <div class="intake__field">
+      <input
+        id="contact_email"
+        type="email"
+        formControlName="contact_email"
+        placeholder="jane@acme-logistics.example.com"
+        autocomplete="off"
+      />
+      @if (f.contact_email.touched && f.contact_email.invalid) {
+        <p class="intake__error">Enter a valid email address.</p>
+      }
+    </div>
+  </div>
+
+  <div class="intake__actions">
+    <button type="submit" class="btn btn--primary" [disabled]="submitting">
+      {{ submitting ? 'Researching…' : 'Start research' }}
+    </button>
+  </div>
+</form>

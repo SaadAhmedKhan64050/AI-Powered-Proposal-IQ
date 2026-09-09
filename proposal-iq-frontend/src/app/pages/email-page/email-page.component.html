@@ -1,0 +1,49 @@
+<app-stepper [runId]="runId" [currentIndex]="3" [furthestUnlockedIndex]="3" />
+
+<section class="panel">
+  @if (loading) {
+    <div class="notice notice--pending">
+      <p class="notice__title">Loading…</p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="notice notice--error">
+      <p class="notice__title">Something went wrong</p>
+      <p class="notice__body">{{ errorMessage }}</p>
+    </div>
+  }
+
+  @if (run) {
+    <h1 class="panel__title">Send report — {{ run.company_name }}</h1>
+    <p class="panel__subtitle">
+      Review the report below, then send it to {{ run.contact_name }} at
+      {{ run.contact_email }}. Nothing is sent until you press Send.
+    </p>
+
+    @if (run.email_sent) {
+      <div class="notice" style="border-color: var(--tide); background: #eef7f6;">
+        <p class="notice__title" style="color: var(--tide);">Email sent</p>
+        <p class="notice__body">Delivered to {{ run.contact_email }}.</p>
+      </div>
+    } @else if (run.email_error) {
+      <div class="notice notice--error">
+        <p class="notice__title">Email not sent</p>
+        <p class="notice__body">{{ run.email_error }}</p>
+      </div>
+    }
+
+    <div class="report" [innerHTML]="run.report_html"></div>
+
+    <div class="page-actions">
+      <a class="btn btn--secondary" [routerLink]="['/runs', runId, 'solutions']">Back</a>
+      @if (!run.email_sent) {
+        <button class="btn btn--primary" [disabled]="sending" (click)="send()">
+          {{ sending ? 'Sending…' : 'Send report' }}
+        </button>
+      } @else {
+        <a class="btn btn--secondary" routerLink="/">Start a new research request</a>
+      }
+    </div>
+  }
+</section>

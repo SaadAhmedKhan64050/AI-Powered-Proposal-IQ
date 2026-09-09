@@ -1,0 +1,61 @@
+<app-stepper [runId]="runId" [currentIndex]="0" [furthestUnlockedIndex]="0" />
+
+<section class="panel">
+  @if (loading) {
+    <div class="notice notice--pending">
+      <p class="notice__title">Loading…</p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="notice notice--error">
+      <p class="notice__title">Something went wrong</p>
+      <p class="notice__body">{{ errorMessage }}</p>
+    </div>
+  }
+
+  @if (run) {
+    <h1 class="panel__title">Research — {{ run.company_name }}</h1>
+    <p class="panel__subtitle">
+      What the system found from the company's public website, before any
+      opportunities are drawn from it.
+    </p>
+
+    @if (run.warnings.length) {
+      <div class="notice notice--error">
+        <p class="notice__title">Warnings</p>
+        <ul>
+          @for (w of run.warnings; track w) {
+            <li>{{ w }}</li>
+          }
+        </ul>
+      </div>
+    }
+
+  @for (section of run.research_sections; track section.heading) {
+  <div class="research-section">
+    <h3 class="research-section__heading">{{ section.heading }}</h3>
+    <ul class="research-section__points">
+      @for (point of section.points; track point) {
+        <li>{{ point }}</li>
+      }
+    </ul>
+  </div>
+}
+    @if (run.research_sources.length) {
+      <p class="sources">
+        Sources:
+        @for (s of run.research_sources; track s; let last = $last) {
+          <a [href]="s" target="_blank" rel="noopener">{{ s }}</a>{{ last ? '' : ', ' }}
+        }
+      </p>
+    }
+
+    <div class="page-actions">
+      <a class="btn btn--secondary" routerLink="/">Start over</a>
+      <button class="btn btn--primary" [disabled]="advancing" (click)="continue()">
+        {{ advancing ? 'Identifying opportunities…' : 'Continue to opportunities' }}
+      </button>
+    </div>
+  }
+</section>

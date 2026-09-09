@@ -1,0 +1,29 @@
+{
+  "_comment": "Replace these with short descriptions YOU write in your own words, based only on publicly available marketing info about your company's offerings. Do not paste text copied from internal docs, proprietary catalogs, or code. Keep each description to 1-3 sentences describing what the solution does and who it's for.",
+  "solutions": [
+    {
+      "name": "Freight Rate Intelligence",
+      "description": "Aggregates and benchmarks freight rates across carriers and lanes so shippers can spot overpaying and negotiate better contracts."
+    },
+    {
+      "name": "Shipment Visibility & Tracking",
+      "description": "Real-time tracking across ocean, air, and road legs of a shipment, with automated delay alerts."
+    },
+    {
+      "name": "Document Automation",
+      "description": "Extracts and validates data from shipping documents (bills of lading, invoices, customs paperwork) to cut manual data entry."
+    },
+    {
+      "name": "Supply Chain Risk Monitoring",
+      "description": "Flags geopolitical, weather, and port-congestion risks that could disrupt a shipper's active routes."
+    },
+    {
+      "name": "Customs & Compliance Support",
+      "description": "Helps shippers stay compliant with changing trade regulations and sanctions lists across regions."
+    },
+    {
+      "name": "Carrier & Vendor Management",
+      "description": "Centralizes carrier performance data and contracts to simplify vendor selection and renewals."
+    }
+  ]
+}

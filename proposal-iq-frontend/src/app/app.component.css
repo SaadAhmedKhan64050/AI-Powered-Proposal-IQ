@@ -1,0 +1,52 @@
+.shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+}
+
+.shell__header {
+  padding: 40px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.shell__brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.shell__mark {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ink);
+  padding: 3px 7px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
+
+.shell__name {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.shell__tagline {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.shell__main {
+  padding-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 0 20px 60px;
+  }
+}

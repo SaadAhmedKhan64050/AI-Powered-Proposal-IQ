@@ -1,0 +1,47 @@
+<app-stepper [runId]="runId" [currentIndex]="2" [furthestUnlockedIndex]="2" />
+
+<section class="panel">
+  @if (loading) {
+    <div class="notice notice--pending">
+      <p class="notice__title">
+        {{ run ? 'Loading…' : 'Mapping solutions and drafting the report…' }}
+      </p>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="notice notice--error">
+      <p class="notice__title">Something went wrong</p>
+      <p class="notice__body">{{ errorMessage }}</p>
+    </div>
+  }
+
+  @if (run) {
+    <h1 class="panel__title">Solution mapping — {{ run.company_name }}</h1>
+    <p class="panel__subtitle">
+      Each opportunity matched to the best-fitting solution from the catalog.
+    </p>
+
+    @for (opp of run.opportunities; track opp.title) {
+      <div class="mapping-row">
+        <p class="mapping-row__opportunity">{{ opp.title }}</p>
+        @if (solutionFor(opp.title); as sol) {
+          <div class="mapping-row__solution">
+            <p class="mapping-row__solution-name">{{ sol.solution_name }}</p>
+            <p class="mapping-row__rationale">{{ sol.rationale }}</p>
+          </div>
+        } @else {
+          <p class="mapping-row__none">No confident match in the catalog</p>
+        }
+      </div>
+    }
+
+    <p class="panel__subtitle" style="margin-top: 28px;">Draft report preview</p>
+    <div class="report" [innerHTML]="run.report_html"></div>
+
+    <div class="page-actions">
+      <a class="btn btn--secondary" [routerLink]="['/runs', runId, 'opportunities']">Back</a>
+      <button class="btn btn--primary" (click)="continue()">Continue to email</button>
+    </div>
+  }
+</section>

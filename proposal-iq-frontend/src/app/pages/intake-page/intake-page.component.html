@@ -1,0 +1,17 @@
+<section class="panel">
+  <h1 class="panel__title">New research request</h1>
+  <p class="panel__subtitle">
+    Enter a prospect's site and contact. The system researches them, then
+    walks you through opportunities, solution mapping, and the email — one
+    step at a time.
+  </p>
+
+  @if (errorMessage) {
+    <div class="notice notice--error">
+      <p class="notice__title">Could not start research</p>
+      <p class="notice__body">{{ errorMessage }}</p>
+    </div>
+  }
+
+  <app-proposal-form [submitting]="submitting" (submitProposal)="onSubmit($event)" />
+</section>

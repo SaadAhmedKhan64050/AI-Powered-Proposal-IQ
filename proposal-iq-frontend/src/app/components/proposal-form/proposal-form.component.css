@@ -1,0 +1,93 @@
+.intake {
+  display: flex;
+  flex-direction: column;
+}
+
+.intake__row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.intake__row:first-child {
+  padding-top: 0;
+}
+
+.intake__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 10px;
+}
+
+.intake__field {
+  min-width: 0;
+}
+
+.intake__field input[type='text'],
+.intake__field input[type='email'] {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 9px 12px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  border-radius: 2px;
+  transition: border-color 120ms ease;
+}
+
+.intake__field input[type='text']:focus,
+.intake__field input[type='email']:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.intake__field input.ng-invalid.ng-touched {
+  border-color: var(--signal);
+}
+
+.intake__error {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--signal);
+}
+
+.intake__hint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.intake__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.intake__checkbox input {
+  margin-top: 3px;
+  accent-color: var(--ink);
+}
+
+.intake__actions {
+  padding-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .intake__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .intake__label {
+    padding-top: 0;
+  }
+}
