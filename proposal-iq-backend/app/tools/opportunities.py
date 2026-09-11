@@ -6,7 +6,7 @@ concrete opportunities, each grounded in something specific from the research
 import json
 import re
 
-from proposal_iq.config import call_llm
+from app.config import call_llm
 
 SYSTEM = (
     "You are a B2B sales analyst for a logistics-technology company. Given "

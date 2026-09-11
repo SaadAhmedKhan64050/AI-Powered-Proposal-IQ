@@ -10,12 +10,12 @@ opportunities list produces a thin report rather than crashing).
 """
 from langgraph.graph import StateGraph, END
 
-from proposal_iq.state import AgentState
-from proposal_iq.tools.opportunities import identify_opportunities
-from proposal_iq.tools.solutions import map_solutions
-from proposal_iq.tools.report import generate_report, markdown_to_simple_html
-from proposal_iq.tools.email_sender import send_report_email
-from proposal_iq.tools.research import research_company, sections_to_text
+from app.state import AgentState
+from app.tools.opportunities import identify_opportunities
+from app.tools.solutions import map_solutions
+from app.tools.report import generate_report, markdown_to_simple_html
+from app.tools.email_sender import send_report_email
+from app.tools.research import research_company, sections_to_text
 
 def _append_error(state: AgentState, message: str | None) -> list[str]:
     errors = list(state.get("errors", []))

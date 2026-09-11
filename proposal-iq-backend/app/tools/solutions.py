@@ -8,7 +8,7 @@ import json
 import re
 from pathlib import Path
 
-from proposal_iq.config import call_llm
+from app.config import call_llm
 
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "data" / "solutions_catalog.json"
 

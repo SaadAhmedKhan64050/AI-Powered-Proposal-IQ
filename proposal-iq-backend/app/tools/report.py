@@ -8,7 +8,7 @@ import json
 import re
 from xhtml2pdf import pisa
 import io
-from proposal_iq.config import call_llm
+from app.config import call_llm
 
 BOLD_LABEL_LINE = re.compile(r"^\*\*[^*]+\*\*\s*:")
 def _inline_format(text: str) -> str:

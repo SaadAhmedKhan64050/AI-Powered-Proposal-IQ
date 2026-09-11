@@ -17,7 +17,7 @@ import json
 import sys
 from pathlib import Path
 
-from proposal_iq.graph import build_graph
+from app.graph import build_graph
 
 OUTPUT_DIR = Path("outputs")
 
@@ -53,7 +53,7 @@ def main():
         # Run everything except the final send_email node by invoking the
         # graph up to generate_report via direct node calls, so --no-email
         # truly never touches the email API.
-        from proposal_iq.graph import (
+        from app.graph import (
             node_research,
             node_identify_opportunities,
             node_map_solutions,

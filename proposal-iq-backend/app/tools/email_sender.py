@@ -14,8 +14,8 @@ real demo if that matters.
 """
 import resend
 
-from proposal_iq.config import RESEND_API_KEY, FROM_EMAIL
-from proposal_iq.tools.report import html_to_pdf_bytes
+from app.config import RESEND_API_KEY, FROM_EMAIL
+from app.tools.report import html_to_pdf_bytes
 
 
 def send_report_email(to_email: str, company_name: str, report_html: str) -> dict:

@@ -21,7 +21,7 @@ import uuid
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from proposal_iq.schemas import (
+from app.schemas import (
     ProposalRequest,
     ProposalResponse,
     CreateRunRequest,
@@ -29,15 +29,15 @@ from proposal_iq.schemas import (
     SolutionCatalogItem,
     ErrorResponse,
 )
-from proposal_iq.graph import (
+from app.graph import (
     node_research,
     node_identify_opportunities,
     node_map_solutions,
     node_generate_report,
     node_send_email,
 )
-from proposal_iq.tools.solutions import load_catalog
-from proposal_iq.storage import save_run, load_run
+from app.tools.solutions import load_catalog
+from app.storage import save_run, load_run
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("proposal_iq")

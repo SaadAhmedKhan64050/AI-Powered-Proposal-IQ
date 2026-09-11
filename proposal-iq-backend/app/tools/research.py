@@ -11,7 +11,7 @@ import json, re
 import requests
 from bs4 import BeautifulSoup
 
-from proposal_iq.config import call_llm, REQUEST_TIMEOUT_SECONDS
+from app.config import call_llm, REQUEST_TIMEOUT_SECONDS
 
 HEADERS = {
     "User-Agent": (
