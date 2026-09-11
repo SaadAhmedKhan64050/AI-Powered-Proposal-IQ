@@ -52,7 +52,7 @@ venv\Scripts\activate          # Windows
 pip install -r requirements.txt
 copy .env.example .env         # Windows: copy, Mac/Linux: cp
 # edit .env and fill in LLM_PROVIDER, OPENAI_API_KEY, RESEND_API_KEY
-uvicorn proposal_iq.api:app --reload --port 8000
+uvicorn app.api:app --reload
 ```
 Confirm it's running at http://localhost:8000/health
 
